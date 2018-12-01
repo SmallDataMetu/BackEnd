@@ -1,9 +1,11 @@
 package com.smalldata.servicerating.request;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class SaveEmotionLogRequest {
 
+    @NotNull
     private String travelId;
 
     private List<EmotionScoreRequest> scores;

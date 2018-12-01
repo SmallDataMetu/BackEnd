@@ -6,7 +6,6 @@ public class NewTravelRequest {
 
     private String driverId;
 
-    private String travelId;
 
     public String getVehicleId() {
         return vehicleId;
@@ -24,11 +23,4 @@ public class NewTravelRequest {
         this.driverId = driverId;
     }
 
-    public String getTravelId() {
-        return travelId;
-    }
-
-    public void setTravelId(String travelId) {
-        this.travelId = travelId;
-    }
 }

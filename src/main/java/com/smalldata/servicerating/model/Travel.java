@@ -4,15 +4,21 @@ package com.smalldata.servicerating.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document
 public class Travel {
+
+    @Id
+    private String travelId;
 
     private String vehicleId;
 
     private String driverId;
 
-    @Id
-    private String travelId;
+    private Date startTime;
+
+    private Date endTime;
 
     public String getVehicleId() {
         return vehicleId;
@@ -36,5 +42,21 @@ public class Travel {
 
     public void setTravelId(String travelId) {
         this.travelId = travelId;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 }
