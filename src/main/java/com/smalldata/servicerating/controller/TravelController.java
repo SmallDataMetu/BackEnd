@@ -16,10 +16,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.List;
 
 @RestController
-public class RatingApiController {
+public class TravelController {
 
     @Autowired
     private RequestMapper requestMapper;
@@ -68,6 +67,9 @@ public class RatingApiController {
 
         Travel travel = driverTravelService.getTravel(travelId);
         travel.setEndTime(new Date());
+
+        // business logic
+
         driverTravelService.updateTravelById(travel);
         return new ResponseEntity<String>("", HttpStatus.OK);
     }

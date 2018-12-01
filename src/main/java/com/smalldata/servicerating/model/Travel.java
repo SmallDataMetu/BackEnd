@@ -20,6 +20,8 @@ public class Travel {
 
     private Date endTime;
 
+    private Long rating;
+
     public String getVehicleId() {
         return vehicleId;
     }
@@ -58,5 +60,13 @@ public class Travel {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public Long getRating() {
+        return rating;
+    }
+
+    public void setRating(Long rating) {
+        this.rating = rating;
     }
 }

@@ -1,10 +1,13 @@
 package com.smalldata.servicerating.service;
 
+import com.smalldata.servicerating.model.RatingLog;
 import com.smalldata.servicerating.model.Travel;
 import com.smalldata.servicerating.repository.TravelRepository;
+import com.smalldata.servicerating.request.GetRatingLogRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,4 +35,5 @@ public class DriverTravelService {
     public Travel updateTravelById(Travel travel) {
         return travelRepository.save(travel);
     }
+
 }
