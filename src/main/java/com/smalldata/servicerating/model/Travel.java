@@ -20,7 +20,7 @@ public class Travel {
 
     private Date endTime;
 
-    private Long rating;
+    private EmotionScore rating;
 
     public String getVehicleId() {
         return vehicleId;
@@ -62,11 +62,11 @@ public class Travel {
         this.endTime = endTime;
     }
 
-    public Long getRating() {
+    public EmotionScore getRating() {
         return rating;
     }
 
-    public void setRating(Long rating) {
+    public void setRating(EmotionScore rating) {
         this.rating = rating;
     }
 }

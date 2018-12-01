@@ -4,7 +4,7 @@ public class RatingLog {
 
     private String travelId;
 
-    private Long rating;
+    private EmotionScore rating;
 
     public String getTravelId() {
         return travelId;
@@ -14,11 +14,11 @@ public class RatingLog {
         this.travelId = travelId;
     }
 
-    public Long getRating() {
+    public EmotionScore getRating() {
         return rating;
     }
 
-    public void setRating(Long rating) {
+    public void setRating(EmotionScore rating) {
         this.rating = rating;
     }
 }

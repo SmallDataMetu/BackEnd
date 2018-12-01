@@ -1,13 +1,13 @@
 package com.smalldata.servicerating.controller;
 
 import com.smalldata.servicerating.mapper.RequestMapper;
-import com.smalldata.servicerating.model.EmotionScore;
 import com.smalldata.servicerating.model.Travel;
-import com.smalldata.servicerating.model.TravelEmotionScores;
+import com.smalldata.servicerating.model.TravelEmotionScore;
 import com.smalldata.servicerating.request.NewTravelRequest;
 import com.smalldata.servicerating.request.SaveEmotionLogRequest;
 import com.smalldata.servicerating.service.DriverTravelService;
 import com.smalldata.backend.utils.CommonUtils;
+import com.smalldata.servicerating.service.RatingLogService;
 import com.smalldata.servicerating.service.TravelEmotionScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +28,9 @@ public class TravelController {
 
     @Autowired
     private TravelEmotionScoreService travelEmotionScoreService;
+
+    @Autowired
+    private RatingLogService ratingLogService;
 
     @PostMapping(value = "/start-new-travel")
     public Travel startNewTravel(@RequestBody NewTravelRequest newTravelRequest) {
@@ -51,7 +54,7 @@ public class TravelController {
             return new ResponseEntity<String>("Travel Id Not Exist", HttpStatus.NOT_FOUND);
         }
 
-        TravelEmotionScores emotionScores = requestMapper.mapTravelEmotionRequestToModel(saveEmotionLogRequest);
+        TravelEmotionScore emotionScores = requestMapper.mapTravelEmotionRequestToModel(saveEmotionLogRequest);
 
         travelEmotionScoreService.saveTravelEmotionLog(emotionScores);
 
@@ -68,7 +71,7 @@ public class TravelController {
         Travel travel = driverTravelService.getTravel(travelId);
         travel.setEndTime(new Date());
 
-        // business logic
+        ratingLogService.finalizeRatingLogs(travel);
 
         driverTravelService.updateTravelById(travel);
         return new ResponseEntity<String>("", HttpStatus.OK);

@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 
 @Document
-public class TravelEmotionScores {
+public class TravelEmotionScore {
 
     private String travelId;
 

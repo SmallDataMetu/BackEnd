@@ -2,7 +2,7 @@ package com.smalldata.servicerating.mapper;
 
 import com.smalldata.servicerating.model.RatingLog;
 import com.smalldata.servicerating.model.Travel;
-import com.smalldata.servicerating.model.TravelEmotionScores;
+import com.smalldata.servicerating.model.TravelEmotionScore;
 import com.smalldata.servicerating.request.GetRatingLogRequest;
 import com.smalldata.servicerating.request.NewTravelRequest;
 import com.smalldata.servicerating.request.SaveEmotionLogRequest;
@@ -40,8 +40,8 @@ public class RequestMapper {
         return mapper.map(newTravelRequest, Travel.class);
     }
 
-    public TravelEmotionScores mapTravelEmotionRequestToModel(SaveEmotionLogRequest saveEmotionLogRequest) {
-        return mapper.map(saveEmotionLogRequest, TravelEmotionScores.class);
+    public TravelEmotionScore mapTravelEmotionRequestToModel(SaveEmotionLogRequest saveEmotionLogRequest) {
+        return mapper.map(saveEmotionLogRequest, TravelEmotionScore.class);
     }
 
     public Travel mapGetRatingLogRequestToModel(GetRatingLogRequest getRatingLogRequest) {
