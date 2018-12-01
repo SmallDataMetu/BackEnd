@@ -1,0 +1,10 @@
+language: java
+script: mvn clean verify
+deploy:
+  provider: heroku
+  api_key:
+    secure: FLAZKKz1o3qZOCvsm4kJMyk78/jjYCY9cdrZ6kt/67rUg2TLO+n/Jqe0iPHiI7ZfOJK8C3BYtYoMRv2LnCw45KDF5kSpraSEycPHwIEbJTJJF6B4lz7G9JYDinHsTkZz5YUDDnVy1AIGQOse5T6T9/MC+QoQqTVZFMBdLS1rtohDp1AikZV4rcxmkR9r7LKvPn1NvC2W8k4DrHssTu+rJVlLS/WOJlT/MkOXbkzF2EdWDIgTy3fUeM+Z8oLu3yBYbw7nMs/JBJjMLMk+zq8lXHkOC+YurIpMgPAwiGryFIFxpH4bvxFFsb2jky8Idoa3BnAnHTYAqB/kgeZPDNtWwSa+DaI59sqjYoOmc7fex01L/LP/+OmitGJ2Z6ChweDDvsnxYN9vzxXIpoGEWFXmEs5b7Plcq1xmw3Gu8T0qfvTN2UcCSJRyWumxngaKhjvTNHpLq28wxHdgo1NtMZVvM4ZNZGk13ctG2h0lu91RQZPWyqQFRsuPh0u5T/yocyQCb8q2H7eY1pW9rBAkbJv1dSGQ4/otuIFAEIUhGUiFYpVVytlEw3Jz6MuyoUpmb2yDpnNs3mX9GyKLrfwDF7VEOtiBOaMDfMqtib/298CpCoxwWbTG+JRFuByGe1Yk0Gq3V4IFqP7xKTi1pQqjdH/XXqfW4g97t0RBH++Pn2qnmb0=
+  app: smalldata-hack
+  on:
+    repo: SmallDataMetu/BackEnd
+  skip_cleanup: true
