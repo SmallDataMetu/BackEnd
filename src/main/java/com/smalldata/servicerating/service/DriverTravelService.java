@@ -14,4 +14,8 @@ public class DriverTravelService {
     public Travel saveDriverTravelInformation(Travel travel) {
         return travelRepository.save(travel);
     }
+
+    public boolean isTravelExist(String id) {
+        return travelRepository.existsById(id);
+    }
 }
