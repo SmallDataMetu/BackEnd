@@ -6,9 +6,10 @@ import com.smalldata.servicerating.model.TravelEmotionScore;
 import com.smalldata.servicerating.request.NewTravelRequest;
 import com.smalldata.servicerating.request.SaveEmotionLogRequest;
 import com.smalldata.servicerating.service.DriverTravelService;
-import com.smalldata.backend.utils.CommonUtils;
+import com.smalldata.servicerating.utils.CommonUtils;
 import com.smalldata.servicerating.service.RatingLogService;
 import com.smalldata.servicerating.service.TravelEmotionScoreService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,7 @@ public class TravelController {
     @Autowired
     private RatingLogService ratingLogService;
 
+    @ApiOperation(value = "Start New Travel", notes = "Start new travel for given driverId and vehicleId. Api returns the travelId in response")
     @PostMapping(value = "/start-new-travel")
     public Travel startNewTravel(@RequestBody NewTravelRequest newTravelRequest) {
 
@@ -47,6 +49,7 @@ public class TravelController {
         return travel;
     }
 
+    @ApiOperation(value = "Save Emotion Log", notes = "Save emotions logs of the customers returned from the azure face api for given travelId")
     @PostMapping(value = "/save-emotion-log")
     public ResponseEntity<String> saveEmotionLog(@RequestBody SaveEmotionLogRequest saveEmotionLogRequest) {
 
@@ -61,6 +64,7 @@ public class TravelController {
         return new ResponseEntity<String>("Emotion Log Saved Successfully", HttpStatus.OK);
     }
 
+    @ApiOperation(value = "Complete Travel", notes = "Calculate and save the average of emotion logs for given travelId")
     @GetMapping(value = "/complete-travel")
     public ResponseEntity<String> completeTravel(@NotNull @RequestParam String travelId) {
 
