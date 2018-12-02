@@ -33,6 +33,7 @@ public class TravelController {
     @Autowired
     private RatingLogService ratingLogService;
 
+    @CrossOrigin(origins = "https://smalldata.surge.sh/dashboard", maxAge = 3600)
     @ApiOperation(value = "Start New Travel", notes = "Start new travel for given driverId and vehicleId. Api returns the travelId in response")
     @PostMapping(value = "/start-new-travel")
     public Travel startNewTravel(@RequestBody NewTravelRequest newTravelRequest) {
