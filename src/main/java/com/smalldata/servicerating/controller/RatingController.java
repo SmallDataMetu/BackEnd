@@ -26,7 +26,7 @@ public class RatingController {
     @Autowired
     private DriverTravelService driverTravelService;
 
-    //@CrossOrigin(origins = "https://smalldata-hack.herokuapp.com",allowCredentials = "true")
+    @CrossOrigin(origins = "https://smalldata-hack.herokuapp.com")
     @ApiOperation(value = "Get Rating Logs", notes = "Given average emotion logs for the vehicleId, driverId, startTime and endTime of the travel. Only provided fields will be used in filter.")
     @PostMapping(value = "/get-rating-logs")
     public List<RatingLog> getRatingLogs(@RequestBody GetRatingLogRequest getRatingLogRequest) {

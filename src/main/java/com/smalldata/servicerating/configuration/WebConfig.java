@@ -17,19 +17,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Component
-@Order(Ordered.HIGHEST_PRECEDENCE)
-public class WebConfig extends OncePerRequestFilter {
+@Configuration
+public class WebConfig  {
 
-    @Override
-    protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response,
-                                    final FilterChain filterChain) throws ServletException, IOException {
-        response.addHeader("Access-Control-Allow-Origin", "*");
-        response.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, PATCH, HEAD");
-        response.addHeader("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-        response.addHeader("Access-Control-Expose-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Credentials");
-        response.addHeader("Access-Control-Allow-Credentials", "true");
-        response.addIntHeader("Access-Control-Max-Age", 10);
-        filterChain.doFilter(request, response);
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/get-rating-logs").allowedOrigins("https://smalldata.surge.sh");
+                super.addCorsMappings(registry);
+            }
+        }
     }
 }
