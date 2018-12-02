@@ -7,8 +7,6 @@ import com.smalldata.servicerating.service.DriverTravelService;
 import com.smalldata.servicerating.service.RatingLogService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +25,6 @@ public class RatingController {
     @Autowired
     private DriverTravelService driverTravelService;
 
-    @CrossOrigin(origins = "https://smalldata.surge.sh", maxAge = 3600)
     @ApiOperation(value = "Get Rating Logs", notes = "Given average emotion logs for the vehicleId, driverId, startTime and endTime of the travel. Only provided fields will be used in filter.")
     @PostMapping(value = "/get-rating-logs")
     public List<RatingLog> getRatingLogs(@RequestBody GetRatingLogRequest getRatingLogRequest) {
