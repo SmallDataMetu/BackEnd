@@ -27,7 +27,7 @@ public class RatingController {
     private DriverTravelService driverTravelService;
 
     @ApiOperation(value = "Get Rating Logs", notes = "Given average emotion logs for the vehicleId, driverId, startTime and endTime of the travel. Only provided fields will be used in filter.")
-    @PostMapping(value = "/get-rating-logs", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/get-rating-logs")
     public List<RatingLog> getRatingLogs(@RequestBody GetRatingLogRequest getRatingLogRequest) {
 
         List<RatingLog> ratingLogList = ratingLogService.getRatingLogs(getRatingLogRequest);
