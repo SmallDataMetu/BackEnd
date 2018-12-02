@@ -8,7 +8,7 @@ import com.smalldata.servicerating.repository.TravelEmotionScoresRepository;
 import com.smalldata.servicerating.repository.TravelRepository;
 import com.smalldata.servicerating.request.GetRatingLogRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.smalldata.backend.utils.CommonUtils;
+import com.smalldata.servicerating.utils.CommonUtils;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;

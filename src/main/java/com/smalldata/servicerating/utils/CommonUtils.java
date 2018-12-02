@@ -1,4 +1,4 @@
-package com.smalldata.backend.utils;
+package com.smalldata.servicerating.utils;
 
 import java.util.Date;
 import java.util.UUID;
