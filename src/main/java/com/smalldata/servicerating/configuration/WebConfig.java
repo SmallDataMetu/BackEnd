@@ -3,6 +3,8 @@ package com.smalldata.servicerating.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class WebConfig extends OncePerRequestFilter {
 
     @Override
